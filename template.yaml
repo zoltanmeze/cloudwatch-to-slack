@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Cloudwatch to Slack lambda function.'
+
+Resources:
+  CloudwatchToSlackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: cloudwatch_to_slack/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      MemorySize: 128
+      Timeout: 5
+      Events:
+        SNSTopic:
+          Type: SNS
+          Properties:
+            Topic:
+              Type: 'AWS::SNS::Topic'
+      Environment:
+        Variables:
+          SLACK_WEBHOOK_URL:
+            Type: String
