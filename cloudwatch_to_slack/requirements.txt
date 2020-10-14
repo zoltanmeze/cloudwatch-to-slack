@@ -1,1 +1,2 @@
-pytest~=6.0.2
+pytest~=6.1.1
+iniconfig==1.0.1
