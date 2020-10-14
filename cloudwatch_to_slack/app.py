@@ -118,6 +118,7 @@ def construct_slack_message(name, description, trigger, dimensions,
     message = {
         'attachments': [
             {
+                'fallback': new_state + ": " + name,
                 'color': COLORS.get(new_state, UNKNOWN_COLOR),
                 'blocks': message_attachments
             }
