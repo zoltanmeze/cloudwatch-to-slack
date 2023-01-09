@@ -1,2 +1,2 @@
 pytest~=7.1.1
-iniconfig==1.1.1
+iniconfig==2.0.0
